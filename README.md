@@ -25,11 +25,11 @@ Golang을 활용하여 WebSocket 기반의 실시간 경매 어플을 개발한�
 
 ## 3. 시스템 아키텍처
 ```
-[Client (React/Flutter)]  <-- WebSocket -->  [Golang Backend]  <-- PostgreSQL / Redis -->  [Database]
+[Client (React/Flutter)]  <-- WebSocket -->  [Golang Backend]  <-- MySQL / Redis -->  [Database]
 ```
 - **Client**: React (Next.js) 또는 Flutter
 - **Backend**: Golang (Gin + WebSocket)
-- **Database**: PostgreSQL + Redis (캐싱)
+- **Database**: MySQL + Redis (캐싱)
 
 ## 4. WebSocket 기반 경매 흐름
 1. **경매 시작**: 관리자가 상품을 등록하고 WebSocket 채널 개설
@@ -79,7 +79,7 @@ POST /api/auction
 |------------|--------------|
 | Backend   | Golang (Gin, WebSocket) |
 | Frontend  | React (Next.js) / Flutter |
-| Database  | PostgreSQL, Redis |
+| Database  | MySQL, Redis |
 | Auth      | JWT 기반 인증 |
 | Hosting   | AWS EC2, S3 |
 
