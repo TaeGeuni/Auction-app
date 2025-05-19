@@ -14,6 +14,12 @@ func Seed(db *gorm.DB) error {
 	}
 
 	for _, user := range users {
+		var existing User
+		// 이미 있는 경우 건너뛰기
+		if err := db.Where("email = ?", user.Email).First(&existing).Error; err == nil {
+			continue
+		}
+
 		if err := db.Create(&user).Error; err != nil {
 			return fmt.Errorf("샘플 유저 삽입 실패: %w", err)
 		}
